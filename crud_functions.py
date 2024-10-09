@@ -14,7 +14,7 @@ price INT NOT NULL
 
 def base():
     for i in range(1, 5):
-        cursor.execute("INSERT INTO Products (id, title, description, price) VALUES (?, ?, ?, ?)",
+        cursor.execute("INSERT OR REPLACE INTO Products (id, title, description, price) VALUES (?, ?, ?, ?)",
                        (i, f"Продукт: {i}", f"Описание: {i}", i*100))
     connection.commit()
 base()
